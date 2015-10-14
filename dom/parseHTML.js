@@ -6,7 +6,7 @@ function parseHTML(str) {
     var el = document.createElement('div');
     el.innerHTML = str;
     if(el.children.length === 1) {
-        return el.children[0];
+        return el.firstChild;
     }
     return el.children;
 }
