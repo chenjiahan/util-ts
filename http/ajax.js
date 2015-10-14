@@ -1,7 +1,7 @@
 /**
  * 简易ajax
  */
-function ajax(conf) {
+export default function ajax(conf) {
     var url = conf.url;
     var data = conf.data;
     var success = conf.success;

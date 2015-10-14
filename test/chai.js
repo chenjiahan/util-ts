@@ -5567,7 +5567,7 @@
      *
      * Assert that an object is of type. Will first
      * check natives, and if that does not pass it will
-     * use the user defined custom tests.
+     * use the user defined custom test.
      *
      * ```js
      * assert(lib.test('1', 'int'));
@@ -5705,7 +5705,7 @@
      *
      * Assert that an object is of type. Will first
      * check natives, and if that does not pass it will
-     * use the user defined custom tests.
+     * use the user defined custom test.
      *
      * ```js
      * assert(lib.test('1', 'int'));

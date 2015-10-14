@@ -978,7 +978,7 @@
                 /**
                  * Describe a "suite" with the given `title`
                  * and callback `fn` containing nested suites
-                 * and/or tests.
+                 * and/or test.
                  */
 
                 context.describe = context.context = function(title, fn){
@@ -1077,14 +1077,14 @@
                 },
 
                 /**
-                 * Execute before running tests.
+                 * Execute before running test.
                  */
                 before: function (name, fn) {
                     suites[0].beforeAll(name, fn);
                 },
 
                 /**
-                 * Execute after running tests.
+                 * Execute after running test.
                  */
                 after: function (name, fn) {
                     suites[0].afterAll(name, fn);
@@ -1338,7 +1338,7 @@
                 /**
                  * Describe a "suite" with the given `title`
                  * and callback `fn` containing nested suites
-                 * and/or tests.
+                 * and/or test.
                  */
 
                 context.suite = function(title, fn){
@@ -1471,7 +1471,7 @@
          *   - `slow` milliseconds to wait before considering a test slow
          *   - `ignoreLeaks` ignore global leaks
          *   - `fullTrace` display the full stack-trace on failing
-         *   - `grep` string or regexp to filter tests with
+         *   - `grep` string or regexp to filter test with
          *
          * @param {Object} options
          * @api public
@@ -1611,10 +1611,10 @@
             runner.on('end', function(){
                 var stats = reporter.stats;
                 if (stats.failures) {
-                    var msg = stats.failures + ' of ' + runner.total + ' tests failed';
+                    var msg = stats.failures + ' of ' + runner.total + ' test failed';
                     notify(msg, { name: 'mocha', title: 'Failed', image: image('error') });
                 } else {
-                    notify(stats.passes + ' tests passed in ' + stats.duration + 'ms', {
+                    notify(stats.passes + ' test passed in ' + stats.duration + 'ms', {
                         name: 'mocha'
                         , title: 'Passed'
                         , image: image('ok')
@@ -1784,7 +1784,7 @@
         };
 
         /**
-         * Makes all tests async (accepting a callback)
+         * Makes all test async (accepting a callback)
          *
          * @return {Mocha}
          * @api public
@@ -1816,7 +1816,7 @@
         };
 
         /**
-         * Run tests and invoke `fn()` when complete.
+         * Run test and invoke `fn()` when complete.
          *
          * @param {Function} fn
          * @return {Runner}
@@ -2206,7 +2206,7 @@
          * All other reporters generally
          * inherit from this reporter, providing
          * stats such as test duration, number
-         * of tests passed / failed etc.
+         * of test passed / failed etc.
          *
          * @param {Runner} runner
          * @api public
@@ -3673,7 +3673,7 @@
 
         /**
          * Draw the "scoreboard" showing the number
-         * of passes, failures and pending tests.
+         * of passes, failures and pending test.
          *
          * @api private
          */
@@ -3914,13 +3914,13 @@
             options.close = options.close || ']';
             options.verbose = false;
 
-            // tests started
+            // test started
             runner.on('start', function(){
                 console.log();
                 cursor.hide();
             });
 
-            // tests complete
+            // test complete
             runner.on('test end', function(){
                 complete++;
                 var incomplete = total - complete
@@ -3945,7 +3945,7 @@
                 }
             });
 
-            // tests are complete, output some stats
+            // test are complete, output some stats
             // and the failures if any
             runner.on('end', function(){
                 cursor.show();
@@ -4622,7 +4622,7 @@
          *   - `start`  execution started
          *   - `end`  execution complete
          *   - `suite`  (suite) test suite execution started
-         *   - `suite end`  (suite) all tests (and sub-suites) have finished
+         *   - `suite end`  (suite) all test (and sub-suites) have finished
          *   - `test`  (test) test execution started
          *   - `test end`  (test) test completed
          *   - `hook`  (hook) hook execution started
@@ -4671,8 +4671,8 @@
 
 
         /**
-         * Run tests with full titles matching `re`. Updates runner.total
-         * with number of tests matched.
+         * Run test with full titles matching `re`. Updates runner.total
+         * with number of test matched.
          *
          * @param {RegExp} re
          * @param {Boolean} invert
@@ -4689,7 +4689,7 @@
         };
 
         /**
-         * Returns the number of tests matching the grep search for the
+         * Returns the number of test matching the grep search for the
          * given suite.
          *
          * @param {Suite} suite
@@ -4802,14 +4802,14 @@
          *
          * Hook failures work in the following pattern:
          * - If bail, then exit
-         * - Failed `before` hook skips all tests in a suite and subsuites,
+         * - Failed `before` hook skips all test in a suite and subsuites,
          *   but jumps to corresponding `after` hook
-         * - Failed `before each` hook skips remaining tests in a
+         * - Failed `before each` hook skips remaining test in a
          *   suite and jumps to corresponding `after each` hook,
          *   which is run only once
          * - Failed `after` hook does not alter
          *   execution order
-         * - Failed `after each` hook skips remaining tests in a
+         * - Failed `after each` hook skips remaining test in a
          *   suite and subsuites, but executes other `after each`
          *   hooks
          *
@@ -4978,7 +4978,7 @@
         };
 
         /**
-         * Run tests in the given `suite` and invoke
+         * Run test in the given `suite` and invoke
          * the callback `fn()` when complete.
          *
          * @param {Suite} suite
@@ -5461,7 +5461,7 @@
         };
 
         /**
-         * Run `fn(test[, done])` before running tests.
+         * Run `fn(test[, done])` before running test.
          *
          * @param {Function} fn
          * @return {Suite} for chaining
@@ -5488,7 +5488,7 @@
         };
 
         /**
-         * Run `fn(test[, done])` after running tests.
+         * Run `fn(test[, done])` after running test.
          *
          * @param {Function} fn
          * @return {Suite} for chaining
@@ -5623,7 +5623,7 @@
         };
 
         /**
-         * Return the total number of tests.
+         * Return the total number of test.
          *
          * @return {Number}
          * @api public
@@ -5637,7 +5637,7 @@
 
         /**
          * Iterates through each suite recursively to find
-         * all tests. Applies a function in the format
+         * all test. Applies a function in the format
          * `fn(test)`.
          *
          * @param {Function} fn
@@ -6502,7 +6502,7 @@
 
     /**
      * Function to allow assertion libraries to throw errors directly into mocha.
-     * This is useful when running tests in a browser because window.onerror will
+     * This is useful when running test in a browser because window.onerror will
      * only receive the 'message' attribute of the Error.
      */
     mocha.throwError = function(err) {

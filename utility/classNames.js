@@ -2,7 +2,7 @@
  * Github: https://github.com/JedWatson/classnames
  * 合并类名
  */
-function classNames() {
+export default function classNames() {
     var classes = '';
 
     for (var i = 0; i < arguments.length; i++) {

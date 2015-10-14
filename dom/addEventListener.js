@@ -2,7 +2,7 @@
  * addEventListener,兼容IE8
  * @returns {{remove: Function}}  用于移除监听器
  */
-function addEventListener(target, eventType, callback) {
+export default function addEventListener(target, eventType, callback) {
     if (target.addEventListener) {
         target.addEventListener(eventType, callback, false);
         return {

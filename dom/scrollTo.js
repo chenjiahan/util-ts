@@ -1,7 +1,7 @@
 /**
  * 滚动到指定位置
  */
-function scrollTo(target, time) {
+export default function scrollTo(target, time) {
 
     //若target为元素,则获取其与顶部距离
     if(typeof target.offsetTop === 'number') {
