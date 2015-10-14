@@ -1,0 +1,29 @@
+{
+  "name": "never-utils",
+  "version": "1.0.0",
+  "description": "neverland's utility library.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^3.3.0",
+    "jsdom": "^6.5.1",
+    "mocha": "^2.3.3",
+    "mocha-phantomjs": "^4.0.1"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenjiahan/never-utils.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chenjiahan/never-utils/issues"
+  },
+  "homepage": "https://github.com/chenjiahan/never-utils#readme"
+}
