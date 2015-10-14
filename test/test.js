@@ -7,7 +7,7 @@ describe('DOM', function() {
     /**
      * parseHTML
      */
-    describe('#parseHTML()', function() {
+    describe('parseHTML()', function() {
         var str, dom;
         it('should return \<div\>', function () {
             str = '<div class="test"><span>test</span></div>';
@@ -24,9 +24,9 @@ describe('DOM', function() {
     });
 
     /**
-     * getUrlParams
+     * getUrlParam
      */
-    describe('#getUrlParams()', function() {
+    describe('getUrlParam()', function() {
         var pathname = window.location.pathname;
         var ret;
 
@@ -54,7 +54,7 @@ describe('DOM', function() {
  * Array
  */
 describe('Array', function() {
-    describe('duplicate', function() {
+    describe('duplicate()', function() {
         it('should return a unique array', function() {
             var arr = [3, 213, 213, true, false, undefined, null, false, -3.2, -3.2];
             var unique = [3, 213, true, false, undefined, null, -3.2];
@@ -65,10 +65,22 @@ describe('Array', function() {
 });
 
 /**
+ * Utility
+ */
+describe('Utility', function() {
+    describe('now', function() {
+        it('should return a timestamp', function() {
+            var now = timestamp();
+            expect(now).to.be.a('number');
+        });
+    });
+});
+
+/**
  * HTTP
  */
 describe('HTTP', function() {
-    describe('#ajax()', function() {
+    describe('ajax()', function() {
         it('should return some data', function(done) {
             ajax({
                 url: 'https://randomuser.me/api/',
