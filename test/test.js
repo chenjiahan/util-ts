@@ -68,10 +68,25 @@ describe('Array', function() {
  * Utility
  */
 describe('Utility', function() {
-    describe('now', function() {
+    /**
+     * timestamp
+     */
+    describe('timestamp', function() {
         it('should return a timestamp', function() {
             var now = timestamp();
             expect(now).to.be.a('number');
+        });
+    });
+
+    /**
+     * classNames
+     */
+    describe('classNames', function() {
+        it('should join classNames together', function() {
+            expect(classNames('foo', 'bar')).to.equal('foo bar');
+            expect(classNames('foo', { bar: true })).to.equal('foo bar');
+            expect(classNames(null, false, 'bar', undefined, 0, 1, { baz: null }, '')).to.equal('bar 1');
+            expect(classNames('foo', { bar: true, duck: false }, 'baz')).to.equal('foo bar baz');
         });
     });
 });
