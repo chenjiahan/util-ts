@@ -51,6 +51,20 @@ describe('DOM', function() {
 });
 
 /**
+ * Array
+ */
+describe('Array', function() {
+    describe('duplicate', function() {
+        it('should return a unique array', function() {
+            var arr = [3, 213, 213, true, false, undefined, null, false, -3.2, -3.2];
+            var unique = [3, 213, true, false, undefined, null, -3.2];
+            var ret = duplicate(arr);
+            expect(ret).to.have.members(unique);
+        })
+    });
+});
+
+/**
  * HTTP
  */
 describe('HTTP', function() {
