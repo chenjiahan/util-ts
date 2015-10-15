@@ -1,5 +1,8 @@
+/**
+ * 数组去重
+ */
 export default function (arr) {
-    return arr.filter(function(value, index){
+    return arr.filter((value, index) => {
         return arr.indexOf(value) === index
     });
 }

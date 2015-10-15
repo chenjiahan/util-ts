@@ -9,7 +9,7 @@ describe('DOM', function() {
      * parseHTML
      */
     describe('parseHTML()', function() {
-        var str, dom;
+        let str, dom;
         it('should return \<div\>', function () {
             str = '<div class="test"><span>test</span></div>';
             dom = _.parseHTML(str);
@@ -30,7 +30,7 @@ describe('DOM', function() {
     describe('getUrlParam()', function() {
         var pathname = window.location.pathname;
         var ret;
-
+        fi
         it('should return empty', function() {
             history.pushState({}, '', pathname);
             ret = _.getUrlParam('name');
@@ -55,6 +55,9 @@ describe('DOM', function() {
  * Array
  */
 describe('Array', function() {
+    /**
+     * duplicate
+     */
     describe('duplicate()', function() {
         it('should return a unique array', function() {
             var arr = [3, 213, 213, true, false, undefined, null, false, -3.2, -3.2];
@@ -62,6 +65,23 @@ describe('Array', function() {
             var ret = _.duplicate(arr);
             expect(ret).to.have.members(unique);
         })
+    });
+
+    /**
+     * isArray
+     */
+    describe('isArray()', function() {
+        it('should return true when args is an Array', function() {
+            expect(_.isArray([])).to.be.true;
+            expect(_.isArray([1,2,3])).to.be.true;
+        });
+        it('should return false when args is not an Array', function() {
+            expect(_.isArray(true)).to.be.false;
+            expect(_.isArray({name: [1,2,3]})).to.be.false;
+            expect(_.isArray(undefined)).to.be.false;
+            expect(_.isArray(null)).to.be.false;
+            expect(_.isArray(100)).to.be.false;
+        });
     });
 });
 

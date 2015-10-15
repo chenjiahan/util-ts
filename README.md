@@ -1,5 +1,5 @@
 # never-utils
-neverland's utility library
+neverland's utility library in ES6.
 
 ### Array
 * duplicate

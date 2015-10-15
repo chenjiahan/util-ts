@@ -2,6 +2,7 @@
  * Array
  */
 import duplicate from './array/duplicate';
+import isArray from './array/isArray';
 
 /**
  * DOM
@@ -12,25 +13,21 @@ import parseHTML from './dom/parseHTML';
 import scrollTo from './dom/scrollTo';
 
 /**
- * HTTP
- */
-import ajax from './http/ajax';
-
-/**
  * Utility
  */
 import classNames from './utility/classNames';
 import timestamp from './utility/timestamp';
 import userAgent from './utility/userAgent';
 
+/**
+ * HTTP
+ */
+import ajax from './http/ajax';
+
+
 export default {
-    duplicate,
-    addEventListener,
-    getUrlParam,
-    parseHTML,
-    scrollTo,
-    ajax,
-    classNames,
-    timestamp,
-    userAgent
+    duplicate, isArray,
+    addEventListener, getUrlParam, parseHTML, scrollTo,
+    classNames, timestamp, userAgent,
+    ajax
 };

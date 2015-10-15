@@ -15,6 +15,7 @@
     "jsdom": "^6.5.1",
     "mocha": "^2.3.3",
     "mocha-phantomjs": "^4.0.1",
+    "should": "^7.1.0",
     "webpack": "^1.12.2"
   },
   "scripts": {
