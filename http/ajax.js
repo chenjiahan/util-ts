@@ -2,19 +2,17 @@
  * 简易ajax
  */
 export default function ajax(conf) {
-    var url = conf.url;
-    var data = conf.data;
-    var success = conf.success;
-    var type = conf.type ? conf.type.toLowerCase() : 'get';
-    var dataType = conf['dataType'] ? conf['dataType'].toLowerCase() : 'json';
+    let {url, data, success, type = 'get', dataType = 'json'} = conf;
+    type = type.toLowerCase();
+    dataType = dataType.toLowerCase();
 
-    var params = [];
-    for(var name in data) {
+    let params = [];
+    for(let name in data) {
         params.push(encodeURIComponent(name) + "=" + encodeURIComponent(conf.data[name]));
     }
     data = params.join( "&" );
 
-    var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    let xhr = new XMLHttpRequest();
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200 && success) {
