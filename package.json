@@ -19,13 +19,14 @@
     "webpack": "^1.12.2"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "build": "webpack --watch"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chenjiahan/never-utils.git"
   },
-  "author": "",
+  "author": "neverland",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/chenjiahan/never-utils/issues"

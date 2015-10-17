@@ -2,15 +2,15 @@
  * 检测userAgent
  */
 export default {
-    isMobile: function(ua) {
+    isMobile(ua) {
         const regExp = (/(mobile|iphone|ipod|ipad|ios|android|windows phone)/i);
         return regExp.test(ua || navigator.userAgent);
     },
-    isAndroid: function(ua) {
+    isAndroid(ua) {
         const regExp = (/android/i);
         return regExp.test(ua || navigator.userAgent);
     },
-    isWeixin: function(ua) {
+    isWeixin(ua) {
         const regExp =(/MicroMessenger/i);
         return regExp.test(ua || navigator.userAgent);
     }

@@ -271,19 +271,23 @@
 
 	var _domScrollTo2 = _interopRequireDefault(_domScrollTo);
 
+	var _domCalcFontSize = __webpack_require__(8);
+
+	var _domCalcFontSize2 = _interopRequireDefault(_domCalcFontSize);
+
 	/**
 	 * Utility
 	 */
 
-	var _utilityClassNames = __webpack_require__(8);
+	var _utilityClassNames = __webpack_require__(9);
 
 	var _utilityClassNames2 = _interopRequireDefault(_utilityClassNames);
 
-	var _utilityTimestamp = __webpack_require__(9);
+	var _utilityTimestamp = __webpack_require__(10);
 
 	var _utilityTimestamp2 = _interopRequireDefault(_utilityTimestamp);
 
-	var _utilityUserAgent = __webpack_require__(10);
+	var _utilityUserAgent = __webpack_require__(11);
 
 	var _utilityUserAgent2 = _interopRequireDefault(_utilityUserAgent);
 
@@ -291,13 +295,13 @@
 	 * HTTP
 	 */
 
-	var _httpAjax = __webpack_require__(11);
+	var _httpAjax = __webpack_require__(12);
 
 	var _httpAjax2 = _interopRequireDefault(_httpAjax);
 
 	exports['default'] = {
 	  duplicate: _arrayDuplicate2['default'], isArray: _arrayIsArray2['default'],
-	  addEventListener: _domAddEventListener2['default'], getUrlParam: _domGetUrlParam2['default'], parseHTML: _domParseHTML2['default'], scrollTo: _domScrollTo2['default'],
+	  addEventListener: _domAddEventListener2['default'], getUrlParam: _domGetUrlParam2['default'], parseHTML: _domParseHTML2['default'], scrollTo: _domScrollTo2['default'], calcFontSize: _domCalcFontSize2['default'],
 	  classNames: _utilityClassNames2['default'], timestamp: _utilityTimestamp2['default'], userAgent: _utilityUserAgent2['default'],
 	  ajax: _httpAjax2['default']
 	};
@@ -490,6 +494,34 @@
 /***/ function(module, exports) {
 
 	/**
+	 * 根据屏幕宽度动态计算fontSize
+	 */
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	exports["default"] = function () {
+	    var docEle = document.documentElement;
+	    var evt = "onorientationchange" in window ? "orientationchange" : "resize";
+	    var fn = function fn() {
+	        var width = docEle.clientWidth;
+	        width && (docEle.style.fontSize = 20 * (width / 320) + "px");
+	        console.log(docEle.style.fontSize);
+	    };
+
+	    window.addEventListener(evt, fn, false);
+	    document.addEventListener("DOMContentLoaded", fn, false);
+	};
+
+	module.exports = exports["default"];
+
+/***/ },
+/* 9 */
+/***/ function(module, exports) {
+
+	/**
 	 * Github: https://github.com/JedWatson/classnames
 	 * 合并类名
 	 */
@@ -528,7 +560,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 9 */
+/* 10 */
 /***/ function(module, exports) {
 
 	/**
@@ -548,7 +580,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 10 */
+/* 11 */
 /***/ function(module, exports) {
 
 	/**
@@ -576,7 +608,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 11 */
+/* 12 */
 /***/ function(module, exports) {
 
 	/**

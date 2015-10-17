@@ -11,6 +11,7 @@ import addEventListener from './dom/addEventListener';
 import getUrlParam from './dom/getUrlParam';
 import parseHTML from './dom/parseHTML';
 import scrollTo from './dom/scrollTo';
+import calcFontSize from './dom/calcFontSize';
 
 /**
  * Utility
@@ -27,7 +28,7 @@ import ajax from './http/ajax';
 
 export default {
     duplicate, isArray,
-    addEventListener, getUrlParam, parseHTML, scrollTo,
+    addEventListener, getUrlParam, parseHTML, scrollTo, calcFontSize,
     classNames, timestamp, userAgent,
     ajax
 };
