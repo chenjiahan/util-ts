@@ -19,6 +19,7 @@ import calcFontSize from './dom/calcFontSize';
 import classNames from './utility/classNames';
 import timestamp from './utility/timestamp';
 import userAgent from './utility/userAgent';
+import memoize from './utility/memoize';
 
 /**
  * HTTP
@@ -29,6 +30,6 @@ import ajax from './http/ajax';
 export default {
     duplicate, isArray,
     addEventListener, getUrlParam, parseHTML, scrollTo, calcFontSize,
-    classNames, timestamp, userAgent,
+    classNames, timestamp, userAgent, memoize,
     ajax
 };

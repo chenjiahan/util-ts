@@ -154,6 +154,21 @@ describe('Utility', function() {
             expect(_.userAgent.isWeixin(uaStr)).to.be.false;
         });
     });
+
+    describe('memoize', function() {
+        it('should return a function', () => {
+            expect(typeof _.memoize(() => {})).to.equal("function");
+        });
+
+        it('should return a function which behaves like the given function', () => {
+            const fn = function(a, b) {
+                return a * 10 + b;
+            };
+            const memoizedFn = _.memoize(fn);
+            expect(memoizedFn(1, 2)).to.equal(fn(1, 2));
+            expect(memoizedFn(2, 1)).to.equal(fn(2, 1));
+        });
+    });
 });
 
 /**

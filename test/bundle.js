@@ -207,6 +207,21 @@
 	            expect(_utils2['default'].userAgent.isWeixin(uaStr)).to.be['false'];
 	        });
 	    });
+
+	    describe('memoize', function () {
+	        it('should return a function', function () {
+	            expect(typeof _utils2['default'].memoize(function () {})).to.equal("function");
+	        });
+
+	        it('should return a function which behaves like the given function', function () {
+	            var fn = function fn(a, b) {
+	                return a * 10 + b;
+	            };
+	            var memoizedFn = _utils2['default'].memoize(fn);
+	            expect(memoizedFn(1, 2)).to.equal(fn(1, 2));
+	            expect(memoizedFn(2, 1)).to.equal(fn(2, 1));
+	        });
+	    });
 	});
 
 	/**
@@ -291,18 +306,22 @@
 
 	var _utilityUserAgent2 = _interopRequireDefault(_utilityUserAgent);
 
+	var _utilityMemoize = __webpack_require__(12);
+
+	var _utilityMemoize2 = _interopRequireDefault(_utilityMemoize);
+
 	/**
 	 * HTTP
 	 */
 
-	var _httpAjax = __webpack_require__(12);
+	var _httpAjax = __webpack_require__(13);
 
 	var _httpAjax2 = _interopRequireDefault(_httpAjax);
 
 	exports['default'] = {
 	  duplicate: _arrayDuplicate2['default'], isArray: _arrayIsArray2['default'],
 	  addEventListener: _domAddEventListener2['default'], getUrlParam: _domGetUrlParam2['default'], parseHTML: _domParseHTML2['default'], scrollTo: _domScrollTo2['default'], calcFontSize: _domCalcFontSize2['default'],
-	  classNames: _utilityClassNames2['default'], timestamp: _utilityTimestamp2['default'], userAgent: _utilityUserAgent2['default'],
+	  classNames: _utilityClassNames2['default'], timestamp: _utilityTimestamp2['default'], userAgent: _utilityUserAgent2['default'], memoize: _utilityMemoize2['default'],
 	  ajax: _httpAjax2['default']
 	};
 	module.exports = exports['default'];
@@ -508,7 +527,6 @@
 	    var fn = function fn() {
 	        var width = docEle.clientWidth;
 	        width && (docEle.style.fontSize = 20 * (width / 320) + "px");
-	        console.log(docEle.style.fontSize);
 	    };
 
 	    window.addEventListener(evt, fn, false);
@@ -609,6 +627,44 @@
 
 /***/ },
 /* 12 */
+/***/ function(module, exports) {
+
+	/**
+	 * Github: https://github.com/addyosmani/memoize.js
+	 * 缓存计算结果
+	 */
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports["default"] = memoize;
+
+	function memoize(func) {
+	    var stringifyJson = JSON.stringify;
+	    var cache = {};
+
+	    var cachedfun = function cachedfun() {
+	        var hash = stringifyJson(arguments);
+	        return hash in cache ? cache[hash] : cache[hash] = func.apply(this, arguments);
+	    };
+
+	    cachedfun.__cache = (function () {
+	        cache.remove || (cache.remove = function () {
+	            var hash = stringifyJson(arguments);
+	            return delete cache[hash];
+	        });
+	        return cache;
+	    }).call(this);
+
+	    return cachedfun;
+	}
+
+	;
+	module.exports = exports["default"];
+
+/***/ },
+/* 13 */
 /***/ function(module, exports) {
 
 	/**
