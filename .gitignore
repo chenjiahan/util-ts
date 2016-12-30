@@ -2,3 +2,4 @@
 *.iml
 .vscode
 node_modules
+.DS_store
