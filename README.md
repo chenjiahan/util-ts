@@ -1,19 +1,35 @@
-# never-utils
-neverland's utility library in ES6.
+# util.ts
+Utils for mobile browsers, built with TypeScript
 
-### Array
-* duplicate
+### Cookies
+``` typescript
+setCookie(key: string, value: string): void;
+getCookie(key: string): string;
+getAllCookie(): Cookies;
+removeCookie(key: string): void;
+```
 
-### DOM
-* addEventLisnter
-* getUrlParam
-* parseHTML
-* scrollTo
+### QueryString
+``` typescript
+getQueryString(key: string): string;
+getAllQueryString(key: string): QueryStrings;
+```
 
-### HTTP
-* Ajax
+### Object
+``` typescript
+isEmptyObject(obj: Object): boolean;
+objectAssign(target: Object, ...args: Object[]): Object;
+objectToQuery(obj: Object): string;
+```
 
-### Utility
-* classNames
-* timestamp
-* userAgent
+### Polyfills
+``` typescript
+raf(callback: Function): number;
+cancelRaf(id: number): void;
+```
+
+### Others
+``` typescript
+decode(value: string): string;
+detectWebp(callback: (result: boolean) => void);
+```
